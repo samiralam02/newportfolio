@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/phone.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body onclick="checkLock()">
+
+    <div id="overlay" onclick="closePopup('registration-popup')"></div>
+    <div class="container popup" id="registration-popup">
+        <span class="close-button" onclick="closePopup('registration-popup')">X</span>
+        <!-- Data or Content -->
+        <div class="box-1">
+            <div class="content-holder">
+                <h2>Hello!</h2>
+                <button class="button-1" onclick="signup()">Sign up</button>
+                <button class="button-2" onclick="login()">Login</button>
+            </div>
+        </div>
+        <!-- Forms -->
+        <div class="box-2">
+            <div class="login-form-container">
+                <h1>Login Form</h1>
+                <form action="login.php" method="post" id="loginform">
+                    <input type="email" id="email" name="email" placeholder="Email" class="input-field" required>
+                    <br>
+                    <input type="password"  id="password" name="password" placeholder="Password" class="input-field" required>
+                    <br>
+                    <div class="recaptcha">
+                        <div class="g-recaptcha" data-sitekey="6Lc93O8pAAAAAPtZNAlZB474op3u2ecgOjQTxv2s" ></div>
+                    </div>
+                    <br>
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Remember Me</label>
+                    </div>
+                    <br>
+                    <button class="login-button" type="submit">Login</button>
+                    <div id="timer" style="color: red;"></div>
+                </form>
+            </div>
+            <!-- Create Container for Signup form -->
+            <div class="signup-form-container">
+                <h1>Sign Up Form</h1>
+                <form action="register.php" method="post" id="registerform">
+                    <input type="text" name="username" placeholder="Username" class="input-field" required>
+                    <br>
+                    <input type="email" id="email" name="email" placeholder="Email" class="input-field" required>
+                    <br>
+                    <input type="password" id="password" name="password" placeholder="Password" class="input-field" required>
+                    <br>
+                    <input type="password" name="confirm_password" placeholder="Confirm Password" class="input-field" required>
+                    <br>
+                    <button class="signup-button" type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+     <!-- HERo Section -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-item">
+                <div class="left">
+                    <h2>Skills</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et asperiores dolorem dolores officiis eligendi ratione nemo nulla mollitia alias?
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum
+                        interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor.</p>
+                    <button>Hire Me</button>
+                </div>
+                <div class="right">
+                    <img src="images/skill.jpg" alt="Skill Image 1">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="left">
+                    <h2>Experience</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo earum totam, necessitatibus possimus sunt cumque error ut sequi autem quo.
+                        Maecenas tincidunt, arcu vel laoreet sagittis, quam nisi commodo risus, non laoreet justo mauris
+                        id velit. Fusce egestas, sapien eget viverra malesuada, dui augue fermentum elit, et scelerisque
+                        turpis augue sit amet arcu.</p>
+                    <button>Learn More</button>
+                </div>
+                <div class="right">
+                    <img src="images/skill1.png" alt="Experience Image 1">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="left">
+                    <h2>Projects</h2>
+                    <p>Curabitur vel sem mi. Proin in lobortis ipsum. Aliquam rutrum tempor ex ac rutrum. In hac
+                        habitasse platea dictumst. Donec sit amet gravida nisi, vel aliquet erat.</p>
+                    <button>View Projects</button>
+                </div>
+                <div class="right">
+                    <img src="images/sam.jpg" alt="Project Image 1">
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+     // Carousel functionality
+     let currentIndex = 0;
+     const items = document.querySelectorAll('.carousel-item');
+ 
+     function showNextSlide() {
+         items[currentIndex].style.display = 'none';
+         currentIndex = (currentIndex + 1) % items.length;
+         items[currentIndex].style.display = 'flex';
+     }
+ 
+     // Initialize carousel
+     items.forEach((item, index) => {
+         item.style.display = index === 0 ? 'flex' : 'none';
+     });
+ 
+     setInterval(showNextSlide, 3000); // Change slide every 4 seconds
+ 
+</script>
+
+    
+</body>
+
+</html>
